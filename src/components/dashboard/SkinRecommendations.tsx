@@ -15,6 +15,7 @@ interface ProductRecommendation {
   rating: number;
   price: string;
   tags: string[];
+  image: string;
 }
 
 export const SkinRecommendations: React.FC = () => {
@@ -24,7 +25,7 @@ export const SkinRecommendations: React.FC = () => {
     return null;
   }
 
-  // Phase-specific product recommendations
+  // Phase-specific product recommendations with matching images
   const phaseRecommendations: Record<CyclePhase, ProductRecommendation[]> = {
     [CyclePhase.MENSTRUATION]: [
       {
@@ -34,7 +35,8 @@ export const SkinRecommendations: React.FC = () => {
         description: 'Soothing, non-stripping formula with ceramides',
         rating: 4.8,
         price: '$24',
-        tags: ['Fragrance-free', 'Gentle', 'Hydrating']
+        tags: ['Fragrance-free', 'Gentle', 'Hydrating'],
+        image: 'https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?q=80&w=300&h=300&auto=format&fit=crop'
       },
       {
         id: '2',
@@ -43,7 +45,8 @@ export const SkinRecommendations: React.FC = () => {
         description: 'Reduces redness and irritation with centella',
         rating: 4.6,
         price: '$32',
-        tags: ['Anti-inflammatory', 'Soothing', 'Weekly use']
+        tags: ['Anti-inflammatory', 'Soothing', 'Weekly use'],
+        image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=300&h=300&auto=format&fit=crop'
       }
     ],
     [CyclePhase.FOLLICULAR]: [
@@ -54,7 +57,8 @@ export const SkinRecommendations: React.FC = () => {
         description: 'Antioxidant protection with 15% vitamin C',
         rating: 4.7,
         price: '$42',
-        tags: ['Brightening', 'Antioxidant', 'Morning use']
+        tags: ['Brightening', 'Antioxidant', 'Morning use'],
+        image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=300&h=300&auto=format&fit=crop'
       },
       {
         id: '4',
@@ -63,7 +67,8 @@ export const SkinRecommendations: React.FC = () => {
         description: 'Smooth skin with PHA technology',
         rating: 4.5,
         price: '$28',
-        tags: ['Exfoliating', 'Hydrating', 'Daily use']
+        tags: ['Exfoliating', 'Hydrating', 'Daily use'],
+        image: 'https://images.unsplash.com/photo-1608248597279-f99d160beba3?q=80&w=300&h=300&auto=format&fit=crop'
       }
     ],
     [CyclePhase.OVULATION]: [
@@ -74,7 +79,8 @@ export const SkinRecommendations: React.FC = () => {
         description: 'Plumping formula with 5 types of hyaluronic acid',
         rating: 4.9,
         price: '$38',
-        tags: ['Hydrating', 'Glowing', 'Twice daily']
+        tags: ['Hydrating', 'Glowing', 'Twice daily'],
+        image: 'https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=300&h=300&auto=format&fit=crop'
       },
       {
         id: '6',
@@ -83,7 +89,8 @@ export const SkinRecommendations: React.FC = () => {
         description: 'Weightless protection for sensitive skin',
         rating: 4.7,
         price: '$34',
-        tags: ['Broad spectrum', 'Oil-free', 'Daily protection']
+        tags: ['Broad spectrum', 'Oil-free', 'Daily protection'],
+        image: 'https://images.unsplash.com/photo-1607697552816-67d419064d5f?q=80&w=300&h=300&auto=format&fit=crop'
       }
     ],
     [CyclePhase.LUTEAL]: [
@@ -94,7 +101,8 @@ export const SkinRecommendations: React.FC = () => {
         description: 'Prevents breakouts with 2% salicylic acid',
         rating: 4.6,
         price: '$26',
-        tags: ['Oil-control', 'Anti-acne', 'Nighttime use']
+        tags: ['Oil-control', 'Anti-acne', 'Nighttime use'],
+        image: 'https://images.unsplash.com/photo-1611080541925-9f974a168121?q=80&w=300&h=300&auto=format&fit=crop'
       },
       {
         id: '8',
@@ -103,7 +111,8 @@ export const SkinRecommendations: React.FC = () => {
         description: 'Detoxifies skin with kaolin and zinc',
         rating: 4.8,
         price: '$30',
-        tags: ['Purifying', 'Pore-minimizing', 'Weekly use']
+        tags: ['Purifying', 'Pore-minimizing', 'Weekly use'],
+        image: 'https://images.unsplash.com/photo-1532413992378-f169ac26fff0?q=80&w=300&h=300&auto=format&fit=crop'
       }
     ]
   };
@@ -134,15 +143,26 @@ export const SkinRecommendations: React.FC = () => {
                 </div>
               </div>
               
-              <h4 className="font-medium">{product.name}</h4>
-              <p className="text-sm text-muted-foreground">{product.description}</p>
-              
-              <div className="flex gap-1 flex-wrap">
-                {product.tags.map(tag => (
-                  <span key={tag} className="px-2 py-1 bg-muted text-xs rounded-full">
-                    {tag}
-                  </span>
-                ))}
+              <div className="flex gap-3">
+                <div className="h-16 w-16 rounded overflow-hidden flex-shrink-0">
+                  <img 
+                    src={product.image} 
+                    alt={product.name} 
+                    className="h-full w-full object-cover" 
+                  />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-medium">{product.name}</h4>
+                  <p className="text-sm text-muted-foreground">{product.description}</p>
+                  
+                  <div className="flex gap-1 flex-wrap mt-1">
+                    {product.tags.map(tag => (
+                      <span key={tag} className="px-2 py-1 bg-muted text-xs rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
               
               <div className="flex justify-between items-center pt-2">

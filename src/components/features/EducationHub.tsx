@@ -27,7 +27,7 @@ interface Video {
 }
 
 export const EducationHub: React.FC = () => {
-  // Sample articles data
+  // Updated articles data with better, more relevant images
   const articles: Article[] = [
     {
       id: '1',
@@ -35,7 +35,7 @@ export const EducationHub: React.FC = () => {
       excerpt: 'Understanding the hormonal fluctuations throughout your cycle and their impact on skin health.',
       category: 'Hormones & Skin',
       readTime: 5,
-      image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=420&h=300&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1607519533932-241574f551c1?q=80&w=420&h=300&auto=format&fit=crop',
       publishDate: '2023-04-15',
     },
     {
@@ -53,7 +53,7 @@ export const EducationHub: React.FC = () => {
       excerpt: 'Discover what triggers hormonal acne and the most effective ways to treat and prevent breakouts.',
       category: 'Acne Management',
       readTime: 7,
-      image: 'https://images.unsplash.com/photo-1576091851149-985fa149d9aa?q=80&w=420&h=300&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=420&h=300&auto=format&fit=crop',
       publishDate: '2023-06-10',
     },
     {
@@ -62,39 +62,39 @@ export const EducationHub: React.FC = () => {
       excerpt: 'Exploring how your digestive system influences skin health and hormonal balance.',
       category: 'Holistic Health',
       readTime: 6,
-      image: 'https://images.unsplash.com/photo-1535914254981-b5012eebbd15?q=80&w=420&h=300&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1586438036836-28410eeecc72?q=80&w=420&h=300&auto=format&fit=crop',
       publishDate: '2023-07-22',
     },
   ];
   
-  // Sample videos data
+  // Updated videos data with better thumbnails
   const videos: Video[] = [
     {
       id: '1',
       title: 'Understanding Your Skin Throughout Your Cycle',
       duration: '12:45',
-      thumbnail: 'https://images.unsplash.com/photo-1535295972055-1c762f4483e5?q=80&w=420&h=230&auto=format&fit=crop',
+      thumbnail: 'https://images.unsplash.com/photo-1611001710675-05e3c07071e3?q=80&w=420&h=230&auto=format&fit=crop',
       category: 'Education',
     },
     {
       id: '2',
       title: 'AM & PM Skincare Routine for Luteal Phase',
       duration: '8:32',
-      thumbnail: 'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?q=80&w=420&h=230&auto=format&fit=crop',
+      thumbnail: 'https://images.unsplash.com/photo-1532413992378-f169ac26fff0?q=80&w=420&h=230&auto=format&fit=crop',
       category: 'Routines',
     },
     {
       id: '3',
       title: 'How to Manage Hormonal Acne Naturally',
       duration: '15:20',
-      thumbnail: 'https://images.unsplash.com/photo-1618681462302-e1006293a281?q=80&w=420&h=230&auto=format&fit=crop',
+      thumbnail: 'https://images.unsplash.com/photo-1556228578-dd539282b964?q=80&w=420&h=230&auto=format&fit=crop',
       category: 'Treatments',
     },
     {
       id: '4',
       title: 'Foods That Help Balance Hormones',
       duration: '10:15',
-      thumbnail: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=420&h=230&auto=format&fit=crop',
+      thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=420&h=230&auto=format&fit=crop',
       category: 'Nutrition',
     },
   ];
