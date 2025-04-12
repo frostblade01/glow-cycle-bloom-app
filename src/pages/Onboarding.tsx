@@ -36,7 +36,7 @@ const Onboarding = () => {
               </div>
             </div>
             <h1 className="text-3xl font-bold bg-gradient-to-r from-glow-pink-500 to-glow-purple-500 bg-clip-text text-transparent">
-              GlowCycle
+              CLOVE
             </h1>
             <p className="text-muted-foreground mt-2">Let's set up your personalized experience</p>
           </div>
@@ -46,7 +46,7 @@ const Onboarding = () => {
       </div>
       
       <footer className="py-4 text-center text-sm text-muted-foreground">
-        &copy; {new Date().getFullYear()} GlowCycle. All rights reserved.
+        &copy; {new Date().getFullYear()} CLOVE. All rights reserved.
       </footer>
     </div>
   );
