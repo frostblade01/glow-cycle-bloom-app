@@ -26,7 +26,7 @@ export const Header: React.FC = () => {
         <div className="container flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 font-bold text-xl">
             <span className="bg-gradient-to-r from-glow-pink-400 to-glow-purple-400 bg-clip-text text-transparent">
-              GlowCycle
+              CLOVE
             </span>
           </Link>
         </div>
@@ -54,7 +54,7 @@ export const Header: React.FC = () => {
         <div className="flex items-center gap-2 font-bold text-xl md:hidden">
           <Link to="/dashboard" className="flex items-center gap-2">
             <span className="bg-gradient-to-r from-glow-pink-400 to-glow-purple-400 bg-clip-text text-transparent">
-              GlowCycle
+              CLOVE
             </span>
           </Link>
         </div>

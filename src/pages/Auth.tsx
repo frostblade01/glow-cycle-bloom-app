@@ -14,6 +14,9 @@ const Auth = () => {
   
   // Redirect if already authenticated
   React.useEffect(() => {
+    // Update document title to CLOVE
+    document.title = "CLOVE";
+    
     if (user) {
       if (!user.isOnboarded) {
         navigate('/onboarding');

@@ -63,7 +63,7 @@ export const SideNavigation: React.FC = () => {
         <Link to="/dashboard" className="flex items-center gap-2 font-bold text-xl">
           <Heart className="h-6 w-6 fill-glow-pink-300 text-glow-pink-300" />
           <span className="bg-gradient-to-r from-glow-pink-400 to-glow-purple-400 bg-clip-text text-transparent">
-            GlowCycle
+            CLOVE
           </span>
         </Link>
       </div>
