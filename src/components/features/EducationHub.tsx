@@ -44,7 +44,7 @@ export const EducationHub: React.FC = () => {
       excerpt: 'Learn how to adapt your skincare routine to work with your hormonal fluctuations for optimal results.',
       category: 'Skincare Tips',
       readTime: 8,
-      image: 'https://images.unsplash.com/photo-1613844099867-8dc303ade5bf?q=80&w=420&h=300&auto=format&fit=crop',
+      image: 'https://imgs.search.brave.com/b6_sIQbAgMzHRU7uXzY_E76aoHzseZcvCMX1Gjn1kqU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMudm9ndWUuY29t/L3Bob3Rvcy82N2Yw/M2UwOTY5YmQ2NDM2/MjM1MmM4NDAvNDoz/L3Bhc3MvdW5kZWZp/bmVk',
       publishDate: '2023-05-02',
     },
     {
@@ -53,7 +53,7 @@ export const EducationHub: React.FC = () => {
       excerpt: 'Discover what triggers hormonal acne and the most effective ways to treat and prevent breakouts.',
       category: 'Acne Management',
       readTime: 7,
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=420&h=300&auto=format&fit=crop',
+      image: 'https://imgs.search.brave.com/vTHOaO2tfhwdy7hzp7m3XJWVE98xiI7XeyMyInQUItc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oaXBz/LmhlYXJzdGFwcHMu/Y29tL2htZy1wcm9k/L2ltYWdlcy9ob3ct/dG8tZ2V0LXJpZC1v/Zi1ob3Jtb25hbC1h/Y25lLTE2NDY4NDc1/NzYucG5nP2Nyb3A9/MC44MDN4dzowLjUz/NnhoOzAuMTA1eHcs/MC4xNjN4aCZyZXNp/emU9NjQwOio',
       publishDate: '2023-06-10',
     },
     {
@@ -73,7 +73,7 @@ export const EducationHub: React.FC = () => {
       id: '1',
       title: 'Understanding Your Skin Throughout Your Cycle',
       duration: '12:45',
-      thumbnail: 'https://images.unsplash.com/photo-1611001710675-05e3c07071e3?q=80&w=420&h=230&auto=format&fit=crop',
+      thumbnail: 'https://imgs.search.brave.com/KUhdCG6vCzhdBhZpevjfNXpzjkOwUd0ioMhDhza25h8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cHJvZC53ZWJzaXRl/LWZpbGVzLmNvbS82/NGQ0ZjJkNTMwODVk/ZGRiYTY0NDg4NTcv/NjdlYWRjNzg3OGZk/YzFkYTBjYjc2NWI2/X3doYXQtaXMtb3Z1/bGF0aW9uLXRyYWNr/aW5nLmpwZw',
       category: 'Education',
     },
     {
