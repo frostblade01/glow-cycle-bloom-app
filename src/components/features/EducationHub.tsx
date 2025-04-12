@@ -35,7 +35,7 @@ export const EducationHub: React.FC = () => {
       excerpt: 'Understanding the hormonal fluctuations throughout your cycle and their impact on skin health.',
       category: 'Hormones & Skin',
       readTime: 5,
-      image: 'https://images.unsplash.com/photo-1607519533932-241574f551c1?q=80&w=420&h=300&auto=format&fit=crop',
+      image: 'https://imgs.search.brave.com/e9xEBuxV0GX8In-K4LCCWJfAtpPDBJ5TcadD1Hx5biM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9oZWxs/b3BlcmlvZC5jb20v/Y2RuL3Nob3AvZmls/ZXMvSGVsbG9fUGVy/aW9kX1RlYW1fMjAw/eDIwMC5wbmc_dj0x/NzI3MDc4NDgz',
       publishDate: '2023-04-15',
     },
     {
@@ -62,7 +62,7 @@ export const EducationHub: React.FC = () => {
       excerpt: 'Exploring how your digestive system influences skin health and hormonal balance.',
       category: 'Holistic Health',
       readTime: 6,
-      image: 'https://images.unsplash.com/photo-1586438036836-28410eeecc72?q=80&w=420&h=300&auto=format&fit=crop',
+      image: 'https://imgs.search.brave.com/lISbQuX4WXw1hEffmAkguoWm6UscBwATtlg5MAwuk50/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Y2xpbmlrYWxseS5j/b20vY2RuL3Nob3Av/YXJ0aWNsZXMvVGhl/X0Nvbm5lY3Rpb25f/QmV0d2Vlbl9HdXRf/YW5kX1NraW5fSGVh/bHRoX1doYXRfWW91/X05lZWRfdG9fS25v/dy5wbmc_dj0xNjgw/MDkwNjA2JndpZHRo/PTE1MDA',
       publishDate: '2023-07-22',
     },
   ];
