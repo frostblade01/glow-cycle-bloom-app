@@ -76,7 +76,7 @@ export const BeautyRecommender: React.FC = () => {
       tags: ['Fragrance-free', 'Gentle', 'Hydrating', 'Soothing'],
       isCleanBeauty: true,
       isCrueltyFree: true,
-      image: 'https://images.unsplash.com/photo-1601049413574-628ab0780942?q=80&w=300&h=300&auto=format&fit=crop',
+      image: 'https://imgs.search.brave.com/en5gE-rx3dFVICVOU7cNoxpsahS7oXOR3YrAxkzUpQw/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NjFmWnJMc29ZUUwu/anBn',
     },
     
     // Follicular Phase Products
@@ -106,7 +106,7 @@ export const BeautyRecommender: React.FC = () => {
       tags: ['Exfoliating', 'Hydrating', 'Daily use', 'Brightening'],
       isCleanBeauty: true,
       isCrueltyFree: true,
-      image: 'https://images.unsplash.com/photo-1608248597279-f99d160beba3?q=80&w=300&h=300&auto=format&fit=crop',
+      image: 'https://imgs.search.brave.com/5-5LEO5w5yzuX6zW2L187NSM0bth2fTTslazlyszYxU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hbnVh/LmNvbS9jZG4vc2hv/cC9maWxlcy9hbnVh/LXRvbmVyLTE1MG1s/LWJoYS0yLWdlbnRs/ZS1leGZvbGlhdGlu/Zy10b25lci00NDEw/NTQ1ODY0NzMxOC5q/cGc_dj0xNzEyMDI4/OTMxJndpZHRoPTEw/ODA',
     },
     {
       id: '6',
@@ -120,7 +120,7 @@ export const BeautyRecommender: React.FC = () => {
       tags: ['Brightening', 'Antioxidant', 'Morning use', 'Lightweight'],
       isCleanBeauty: true,
       isCrueltyFree: true,
-      image: 'https://images.unsplash.com/photo-1619451683226-4bbd0d4e3d36?q=80&w=300&h=300&auto=format&fit=crop',
+      image: 'https://imgs.search.brave.com/U0KTxRnLjRYWAzLjTeDFNeGUiY1E36rB8CZs41Xt97o/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pNS53/YWxtYXJ0aW1hZ2Vz/LmNvbS9zZW8vU2hl/YU1vaXN0dXJlLURh/aWx5LUh5ZHJhdGlv/bi1HbG93LVByaW1p/bmctTW9pc3R1cml6/ZXItMTAwLVZpcmdp/bi1Db2NvbnV0LU9p/bC0yLW96XzVhMDMx/NzI4LTM4OGMtNDA4/Zi1iNDFiLTcxNzg5/ZWUwMzQ4NC5kNDA0/ZjU3N2M4NmE1NTY5/MjVmMWJhYjlkODNh/MTJjOS5qcGVnP29k/bkhlaWdodD01ODAm/b2RuV2lkdGg9NTgw/Jm9kbkJnPUZGRkZG/Rg',
     },
     
     // Ovulation Phase Products
@@ -150,7 +150,7 @@ export const BeautyRecommender: React.FC = () => {
       tags: ['Broad spectrum', 'Oil-free', 'Daily protection', 'Glowing'],
       isCleanBeauty: true,
       isCrueltyFree: true,
-      image: 'https://images.unsplash.com/photo-1607697552816-67d419064d5f?q=80&w=300&h=300&auto=format&fit=crop',
+      image: 'https://imgs.search.brave.com/NcEdzC2cGUR1AJA1BYHMryuY0MgMqi2d1r-XNZRzoME/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9nbG9z/c2llci1wcm9kLmlt/Z2l4Lm5ldC9maWxl/cy9nbG9zc2llci1z/a2luY2FyZS1zcGYt/Y2Fyb3VzZWwtMDEu/cG5nP2F1dG89Y29t/cHJlc3MsZm9ybWF0/JmNzPXNyZ2Imdz17/d2lkdGh9',
     },
     {
       id: '9',
@@ -164,7 +164,7 @@ export const BeautyRecommender: React.FC = () => {
       tags: ['Hydrating', 'Glowing', 'Daily use', 'Radiant'],
       isCleanBeauty: true,
       isCrueltyFree: true,
-      image: 'https://images.unsplash.com/photo-1619451683230-c3cadbda32b8?q=80&w=300&h=300&auto=format&fit=crop',
+      image: 'https://imgs.search.brave.com/v91fONX1WT1gx_M7am8I_JtZE10hhtNjjDQl7LCncZ8/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pMS5w/ZXJmdW1lc2NsdWIu/Y29tL2dyYW5kZS8x/MTkxMDIuanBn',
     },
     
     // Luteal Phase Products
@@ -180,7 +180,7 @@ export const BeautyRecommender: React.FC = () => {
       tags: ['Oil-control', 'Anti-acne', 'Nighttime use', 'Purifying'],
       isCleanBeauty: true,
       isCrueltyFree: true,
-      image: 'https://images.unsplash.com/photo-1611080541925-9f974a168121?q=80&w=300&h=300&auto=format&fit=crop',
+      image: 'https://imgs.search.brave.com/642CtYn9zv604LfWvP9n3ZZLqqnu-c8igimrhRdsim0/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZGVybXN0b3JlLmNv/bS9pbWFnZXM_dXJs/PWh0dHBzOi8vc3Rh/dGljLnRoY2RuLmNv/bS9wcm9kdWN0aW1n/L29yaWdpbmFsLzE0/MjkzNTAxLTM0MjUw/NDAzMTU2MTg5NjMu/anBnJmZvcm1hdD13/ZWJwJmF1dG89YXZp/ZiZ3aWR0aD05ODUm/aGVpZ2h0PTk4NSZm/aXQ9Y292ZXI.jpeg',
     },
     {
       id: '11',
@@ -208,7 +208,7 @@ export const BeautyRecommender: React.FC = () => {
       tags: ['Oil-control', 'Balancing', 'Lightweight', 'Purifying'],
       isCleanBeauty: true,
       isCrueltyFree: true,
-      image: 'https://images.unsplash.com/photo-1594425891429-3975231446ee?q=80&w=300&h=300&auto=format&fit=crop',
+      image: 'https://imgs.search.brave.com/teODD0bvxnPLRqh_124MQA3X_8o975q89nS57T92Qd0/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/b21vcm92aWN6YS5j/b20vY2RuL3Nob3Av/ZmlsZXMvQmFsYW5j/aW5nLW1vaXN0dXJp/c2VyX2M3ZDZlMjVi/LTZlMTgtNGJmZS1h/YzBiLTMxNTAxMzky/NWFkZC5wbmc_dj0x/NzA2MjAyMDA2Jndp/ZHRoPTIwMDA',
     },
   ];
   
