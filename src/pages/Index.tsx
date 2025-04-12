@@ -9,6 +9,9 @@ const Index = () => {
   const navigate = useNavigate();
   
   useEffect(() => {
+    // Update the document title to CLOVE
+    document.title = "CLOVE";
+    
     if (user) {
       if (!user.isOnboarded) {
         navigate('/onboarding');

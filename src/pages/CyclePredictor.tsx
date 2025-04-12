@@ -71,19 +71,20 @@ const CyclePredictor = () => {
   
   const predictions = generateCyclePredictions();
   
-  // Custom day cell renderer
-  const renderDay = (day: Date) => {
+  // Custom day cell renderer that works with the DayProps type
+  // The renderDay function needs to be updated to fix the TypeScript error
+  const renderDay = (date: Date) => {
     // Skip rendering for days outside the current month
-    if (!isSameMonth(day, currentMonth)) {
+    if (!isSameMonth(date, currentMonth)) {
       return null;
     }
     
-    const phase = getCyclePhaseForDate(day);
+    const phase = getCyclePhaseForDate(date);
     
     // Determine if this day is a special day (period start, ovulation)
-    const isPeriodStart = nextPeriodStart && isSameDay(day, nextPeriodStart);
-    const isOvulationDay = nextOvulation && isSameDay(day, nextOvulation);
-    const isTodays = isToday(day);
+    const isPeriodStart = nextPeriodStart && isSameDay(date, nextPeriodStart);
+    const isOvulationDay = nextOvulation && isSameDay(date, nextOvulation);
+    const isTodays = isToday(date);
     
     // Map phases to colors
     const phaseColors = {
@@ -103,7 +104,7 @@ const CyclePredictor = () => {
                     ${isOvulationDay ? "ring-cycle-ovulation" : ""}
           `}
         >
-          {day.getDate()}
+          {date.getDate()}
         </div>
         <div 
           className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full 
@@ -174,7 +175,7 @@ const CyclePredictor = () => {
                           onMonthChange={setCurrentMonth}
                           className="border-0"
                           components={{
-                            Day: ({ day }) => renderDay(day)
+                            Day: ({ date }) => renderDay(date)
                           }}
                         />
                       </div>

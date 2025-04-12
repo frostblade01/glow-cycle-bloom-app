@@ -9,7 +9,48 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      cycle_data: {
+        Row: {
+          created_at: string
+          id: string
+          period_end_date: string
+          period_start_date: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          period_end_date: string
+          period_start_date: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          period_end_date?: string
+          period_start_date?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          id: string
+          is_onboarded: boolean | null
+          name: string | null
+        }
+        Insert: {
+          id: string
+          is_onboarded?: boolean | null
+          name?: string | null
+        }
+        Update: {
+          id?: string
+          is_onboarded?: boolean | null
+          name?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
