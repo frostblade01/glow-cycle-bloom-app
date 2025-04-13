@@ -98,7 +98,15 @@ const AboutClove = () => {
   return (
     <div className="min-h-screen bg-gradient-to-r from-glow-pink-50 to-glow-purple-50">
       {/* Hero Section */}
-      <div className="container mx-auto px-4 py-20 text-center">
+      <div className="container mx-auto px-4 py-20 text-center relative">
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 -z-10">
+          <img 
+            src="https://images.unsplash.com/photo-1607779097040-813fd7ce7871?q=80&w=2000" 
+            alt="Background pattern" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
         <div className="flex justify-center mb-6">
           <div className="h-20 w-20 bg-gradient-to-br from-glow-pink-300 to-glow-purple-400 rounded-full flex items-center justify-center">
             <Heart className="h-10 w-10 text-white" />
@@ -118,19 +126,28 @@ const AboutClove = () => {
 
       {/* Mission Section */}
       <div className="bg-white py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">Our Mission</h2>
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-lg mb-6 text-muted-foreground">
-              At CLOVE, we believe in the profound connection between hormonal cycles and skin health. 
-              Our mission is to empower individuals to understand this relationship and optimize their 
-              skincare routines accordingly.
-            </p>
-            <p className="text-lg text-muted-foreground">
-              We combine cutting-edge technology with scientific research to provide personalized 
-              skincare recommendations that adapt to your body's natural rhythms, helping you achieve 
-              your best skin at every phase of your cycle.
-            </p>
+        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 className="text-3xl font-bold mb-8">Our Mission</h2>
+            <div className="text-muted-foreground">
+              <p className="text-lg mb-6">
+                At CLOVE, we believe in the profound connection between hormonal cycles and skin health. 
+                Our mission is to empower individuals to understand this relationship and optimize their 
+                skincare routines accordingly.
+              </p>
+              <p className="text-lg">
+                We combine cutting-edge technology with scientific research to provide personalized 
+                skincare recommendations that adapt to your body's natural rhythms, helping you achieve 
+                your best skin at every phase of your cycle.
+              </p>
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <img 
+              src="https://images.unsplash.com/photo-1586335963805-7b603f562a5f?q=80&w=1000" 
+              alt="Skincare Products" 
+              className="rounded-lg shadow-lg w-full max-w-md object-cover h-72"
+            />
           </div>
         </div>
       </div>
@@ -153,6 +170,29 @@ const AboutClove = () => {
         </div>
       </div>
 
+      {/* Image Showcase */}
+      <div className="bg-gradient-to-r from-glow-purple-100 to-glow-pink-100 py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <img 
+              src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800" 
+              alt="Woman using skincare" 
+              className="rounded-lg shadow-lg h-64 w-full object-cover transform hover:scale-105 transition-transform duration-300"
+            />
+            <img 
+              src="https://images.unsplash.com/photo-1631730431578-608f4b669e36?q=80&w=800" 
+              alt="Skincare and self-care" 
+              className="rounded-lg shadow-lg h-64 w-full object-cover transform translate-y-8 hover:scale-105 transition-transform duration-300 hidden md:block"
+            />
+            <img 
+              src="https://images.unsplash.com/photo-1624454002302-36b824d79a5a?q=80&w=800" 
+              alt="Natural beauty products" 
+              className="rounded-lg shadow-lg h-64 w-full object-cover transform hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+        </div>
+      </div>
+
       {/* FAQ Section */}
       <div className="bg-white py-16">
         <div className="container mx-auto px-4">
@@ -171,11 +211,25 @@ const AboutClove = () => {
       </div>
 
       {/* Call to Action */}
-      <div className="container mx-auto px-4 py-20 text-center">
+      <div className="container mx-auto px-4 py-20 text-center relative">
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-5 -z-10">
+          <img 
+            src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2000" 
+            alt="Background texture" 
+            className="w-full h-full object-cover"
+          />
+        </div>
         <h2 className="text-3xl font-bold mb-4">Ready to transform your skincare journey?</h2>
         <p className="text-lg mb-8 max-w-2xl mx-auto text-muted-foreground">
           Join CLOVE today and discover skincare that works in harmony with your body's natural cycles.
         </p>
+        <div className="flex justify-center mb-8">
+          <img 
+            src="https://images.unsplash.com/photo-1532413992378-f169ac26fff0?q=80&w=800" 
+            alt="Woman with glowing skin" 
+            className="rounded-full h-32 w-32 object-cover border-4 border-white shadow-lg"
+          />
+        </div>
         <Button onClick={handleGetStarted} size="lg" className="gap-2">
           Get Started
           <ChevronRight className="h-4 w-4" />
