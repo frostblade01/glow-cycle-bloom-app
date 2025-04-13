@@ -40,7 +40,7 @@ const BeautyRecommender = () => {
           
           <div className="mt-8 text-center text-sm text-muted-foreground">
             <p>Product recommendations are personalized based on your cycle phase and skin concerns.</p>
-            <p>We never receive commissions for recommendations - our suggestions are always unbiased.</p>
+            <p>Our recommendations are based on products highly recommended by senior dermatologists and are safe for use.</p>
           </div>
         </main>
       </div>
