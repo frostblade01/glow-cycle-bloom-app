@@ -8,7 +8,7 @@ import { useAuth } from '@/context/AuthContext';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
-import { format } from 'date-fns';
+import { format, isAfter, isBefore } from 'date-fns';
 import {
   Form,
   FormControl,
@@ -26,6 +26,9 @@ import {
 import { CalendarIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+// Define the minimum date (March 16th, 2024)
+const MINIMUM_DATE = new Date(2024, 2, 16); // March is month 2 in JavaScript (0-indexed)
+
 const formSchema = z.object({
   lastPeriodStartDate: z.date({
     required_error: 'Please select your last period start date',
@@ -33,9 +36,13 @@ const formSchema = z.object({
   lastPeriodEndDate: z.date({
     required_error: 'Please select your last period end date',
   }),
-}).refine(data => data.lastPeriodEndDate >= data.lastPeriodStartDate, {
+}).refine(data => isAfter(data.lastPeriodEndDate, data.lastPeriodStartDate) || 
+  data.lastPeriodEndDate.getTime() === data.lastPeriodStartDate.getTime(), {
   message: "End date must be after or the same as start date",
   path: ["lastPeriodEndDate"],
+}).refine(data => !isBefore(data.lastPeriodStartDate, MINIMUM_DATE), {
+  message: `Start date cannot be earlier than ${format(MINIMUM_DATE, 'PPP')}`,
+  path: ["lastPeriodStartDate"],
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -130,13 +137,17 @@ export const CycleForm: React.FC<CycleFormProps> = ({ onComplete }) => {
                       mode="single"
                       selected={field.value}
                       onSelect={field.onChange}
-                      disabled={(date) => date > new Date()}
+                      disabled={(date) => 
+                        date > new Date() || 
+                        isBefore(date, MINIMUM_DATE)
+                      }
                       initialFocus
+                      className="pointer-events-auto"
                     />
                   </PopoverContent>
                 </Popover>
                 <FormDescription>
-                  Select the first day of your most recent period.
+                  Select the first day of your most recent period (must be after March 16th, 2024).
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -178,6 +189,7 @@ export const CycleForm: React.FC<CycleFormProps> = ({ onComplete }) => {
                         (form.getValues().lastPeriodStartDate && date < form.getValues().lastPeriodStartDate)
                       }
                       initialFocus
+                      className="pointer-events-auto"
                     />
                   </PopoverContent>
                 </Popover>

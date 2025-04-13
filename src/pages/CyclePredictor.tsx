@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Header } from '@/components/layout/Header';
 import { SideNavigation } from '@/components/layout/SideNavigation';
@@ -74,8 +73,7 @@ const CyclePredictor = () => {
   
   const predictions = generateCyclePredictions();
   
-  // Custom day cell renderer that works with the DayProps type
-  // The renderDay function needs to be updated to fix the TypeScript error
+  // Custom day component for the calendar
   const renderDay = (date: Date) => {
     // Skip rendering for days outside the current month
     if (!isSameMonth(date, currentMonth)) {
@@ -88,6 +86,10 @@ const CyclePredictor = () => {
     const isPeriodStart = nextPeriodStart && isSameDay(date, nextPeriodStart);
     const isOvulationDay = nextOvulation && isSameDay(date, nextOvulation);
     const isTodays = isToday(date);
+    
+    // Check if this date is a predicted period start date
+    const isPredictedPeriodStart = predictions.some(p => isSameDay(date, p.periodStart));
+    const isPredictedOvulation = predictions.some(p => isSameDay(date, p.ovulation));
     
     // Map phases to colors
     const phaseColors = {
@@ -102,9 +104,9 @@ const CyclePredictor = () => {
         <div 
           className={`w-full h-full flex items-center justify-center rounded-full
                     ${isTodays ? "font-bold" : ""}
-                    ${isPeriodStart || isOvulationDay ? "ring-2 ring-offset-1" : ""}
-                    ${isPeriodStart ? "ring-cycle-menstruation" : ""}
-                    ${isOvulationDay ? "ring-cycle-ovulation" : ""}
+                    ${(isPeriodStart || isPredictedPeriodStart || isOvulationDay || isPredictedOvulation) ? "ring-2 ring-offset-1" : ""}
+                    ${(isPeriodStart || isPredictedPeriodStart) ? "ring-cycle-menstruation" : ""}
+                    ${(isOvulationDay || isPredictedOvulation) ? "ring-cycle-ovulation" : ""}
           `}
         >
           {date.getDate()}
@@ -176,7 +178,7 @@ const CyclePredictor = () => {
                           selected={new Date()}
                           month={currentMonth}
                           onMonthChange={setCurrentMonth}
-                          className="border-0"
+                          className="border-0 pointer-events-auto"
                           components={{
                             Day: ({ date }) => renderDay(date)
                           }}

@@ -1,6 +1,6 @@
 
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import { addDays, format, differenceInDays } from "date-fns";
+import { addDays, format, differenceInDays, isBefore, isAfter, startOfDay, endOfDay } from "date-fns";
 
 // Define cycle phases
 export enum CyclePhase {
@@ -21,6 +21,7 @@ interface CycleContextType {
   nextPeriodStart: Date | null;
   nextOvulation: Date | null;
   setLastPeriodDates: (startDate: Date, endDate: Date) => void;
+  setCycleLength: (length: number) => void;
   getCyclePhaseForDate: (date: Date) => CyclePhase;
 }
 
@@ -35,6 +36,7 @@ const CycleContext = createContext<CycleContextType>({
   nextPeriodStart: null,
   nextOvulation: null,
   setLastPeriodDates: () => {},
+  setCycleLength: () => {},
   getCyclePhaseForDate: () => CyclePhase.FOLLICULAR,
 });
 
@@ -59,24 +61,52 @@ export const CycleProvider: React.FC<{ children: ReactNode }> = ({ children }) =
       };
     }
 
-    const today = new Date();
-    const daysSinceLastPeriod = differenceInDays(today, lastPeriodStart);
-    const currentCycleDay = (daysSinceLastPeriod % cycleLength) + 1;
+    const today = startOfDay(new Date());
+    const periodStartDay = startOfDay(lastPeriodStart);
     
-    // Calculate next period and ovulation
-    const daysUntilNextPeriod = cycleLength - ((daysSinceLastPeriod % cycleLength));
-    const nextPeriodStart = addDays(today, daysUntilNextPeriod);
+    // Calculate total days since last period start
+    const daysSinceLastPeriod = differenceInDays(today, periodStartDay);
     
-    // Ovulation typically occurs 14 days before next period
+    // Calculate what day of the cycle we're on (1-based)
+    let currentCycleDay: number;
+    let nextPeriodStart: Date;
+    
+    if (daysSinceLastPeriod < 0) {
+      // If last period hasn't started yet (should not normally happen)
+      currentCycleDay = 1;
+      nextPeriodStart = periodStartDay;
+    } else if (daysSinceLastPeriod >= cycleLength) {
+      // If we're past the expected cycle length
+      currentCycleDay = (daysSinceLastPeriod % cycleLength) + 1;
+      
+      // Calculate how many complete cycles have passed
+      const completedCycles = Math.floor(daysSinceLastPeriod / cycleLength);
+      
+      // Calculate when the next period should start
+      nextPeriodStart = addDays(periodStartDay, (completedCycles + 1) * cycleLength);
+    } else {
+      // We're within the current cycle
+      currentCycleDay = daysSinceLastPeriod + 1;
+      nextPeriodStart = addDays(periodStartDay, cycleLength);
+    }
+    
+    // Ensure we don't go over the cycle length
+    if (currentCycleDay > cycleLength) {
+      currentCycleDay = currentCycleDay % cycleLength;
+      if (currentCycleDay === 0) currentCycleDay = cycleLength;
+    }
+    
+    // Calculate ovulation (typically 14 days before next period)
     const nextOvulation = addDays(nextPeriodStart, -14);
-
-    // Determine current phase
+    
+    // Determine current phase based on cycle day
     let currentPhase: CyclePhase;
+    
     if (currentCycleDay <= periodLength) {
       currentPhase = CyclePhase.MENSTRUATION;
-    } else if (currentCycleDay <= 14) {
+    } else if (currentCycleDay <= cycleLength - 14) {
       currentPhase = CyclePhase.FOLLICULAR;
-    } else if (currentCycleDay <= 16) {
+    } else if (currentCycleDay <= cycleLength - 12) { // 2-day ovulation window
       currentPhase = CyclePhase.OVULATION;
     } else {
       currentPhase = CyclePhase.LUTEAL;
@@ -94,14 +124,29 @@ export const CycleProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   const getCyclePhaseForDate = (date: Date): CyclePhase => {
     if (!lastPeriodStart) return CyclePhase.FOLLICULAR;
 
-    const daysSinceLastPeriod = differenceInDays(date, lastPeriodStart);
+    const targetDate = startOfDay(date);
+    const periodStartDate = startOfDay(lastPeriodStart);
+    
+    // If the date is before the last period start, we can't accurately determine the phase
+    if (isBefore(targetDate, periodStartDate)) {
+      return CyclePhase.FOLLICULAR; // Default to follicular phase
+    }
+    
+    // Calculate days since last period start
+    const daysSinceLastPeriod = differenceInDays(targetDate, periodStartDate);
+    
+    // Calculate which cycle the date falls in
+    const cycleNumber = Math.floor(daysSinceLastPeriod / cycleLength);
+    
+    // Calculate which day of the cycle the date falls on (1-based)
     const cycleDayForDate = (daysSinceLastPeriod % cycleLength) + 1;
-
+    
+    // Determine phase based on cycle day
     if (cycleDayForDate <= periodLength) {
       return CyclePhase.MENSTRUATION;
-    } else if (cycleDayForDate <= 14) {
+    } else if (cycleDayForDate <= cycleLength - 14) {
       return CyclePhase.FOLLICULAR;
-    } else if (cycleDayForDate <= 16) {
+    } else if (cycleDayForDate <= cycleLength - 12) { // 2-day ovulation window
       return CyclePhase.OVULATION;
     } else {
       return CyclePhase.LUTEAL;
@@ -110,9 +155,16 @@ export const CycleProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   // Set last period dates
   const setLastPeriodDates = (startDate: Date, endDate: Date) => {
-    setLastPeriodStart(startDate);
-    setLastPeriodEnd(endDate);
-    setPeriodLength(differenceInDays(endDate, startDate) + 1);
+    // Ensure we're working with start of day for consistent calculations
+    const start = startOfDay(startDate);
+    const end = endOfDay(endDate);
+    
+    setLastPeriodStart(start);
+    setLastPeriodEnd(end);
+    
+    // Calculate period length (add 1 because both start and end dates are inclusive)
+    const calculatedPeriodLength = differenceInDays(end, start) + 1;
+    setPeriodLength(calculatedPeriodLength);
   };
 
   const { currentPhase, currentCycleDay, nextPeriodStart, nextOvulation } = calculateCycleInfo();
@@ -129,6 +181,7 @@ export const CycleProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         nextPeriodStart,
         nextOvulation,
         setLastPeriodDates,
+        setCycleLength,
         getCyclePhaseForDate,
       }}
     >
