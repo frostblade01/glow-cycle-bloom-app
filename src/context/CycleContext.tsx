@@ -77,10 +77,8 @@ export const CycleProvider: React.FC<{ children: ReactNode }> = ({ children }) =
       nextPeriodStart = periodStartDay;
     } else if (daysSinceLastPeriod >= cycleLength) {
       // If we're past the expected cycle length
-      currentCycleDay = (daysSinceLastPeriod % cycleLength) + 1;
-      
-      // Calculate how many complete cycles have passed
       const completedCycles = Math.floor(daysSinceLastPeriod / cycleLength);
+      currentCycleDay = (daysSinceLastPeriod % cycleLength) + 1;
       
       // Calculate when the next period should start
       nextPeriodStart = addDays(periodStartDay, (completedCycles + 1) * cycleLength);
@@ -102,11 +100,12 @@ export const CycleProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     // Determine current phase based on cycle day
     let currentPhase: CyclePhase;
     
+    // Fixed phase determination logic
     if (currentCycleDay <= periodLength) {
       currentPhase = CyclePhase.MENSTRUATION;
-    } else if (currentCycleDay <= cycleLength - 14) {
+    } else if (currentCycleDay <= cycleLength - 16) { // Adjusted follicular phase
       currentPhase = CyclePhase.FOLLICULAR;
-    } else if (currentCycleDay <= cycleLength - 12) { // 2-day ovulation window
+    } else if (currentCycleDay <= cycleLength - 12) { // Ovulation phase (days ~12-16)
       currentPhase = CyclePhase.OVULATION;
     } else {
       currentPhase = CyclePhase.LUTEAL;
@@ -141,12 +140,12 @@ export const CycleProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     // Calculate which day of the cycle the date falls on (1-based)
     const cycleDayForDate = (daysSinceLastPeriod % cycleLength) + 1;
     
-    // Determine phase based on cycle day
+    // Updated phase determination logic
     if (cycleDayForDate <= periodLength) {
       return CyclePhase.MENSTRUATION;
-    } else if (cycleDayForDate <= cycleLength - 14) {
+    } else if (cycleDayForDate <= cycleLength - 16) {
       return CyclePhase.FOLLICULAR;
-    } else if (cycleDayForDate <= cycleLength - 12) { // 2-day ovulation window
+    } else if (cycleDayForDate <= cycleLength - 12) { // 4-day ovulation window
       return CyclePhase.OVULATION;
     } else {
       return CyclePhase.LUTEAL;

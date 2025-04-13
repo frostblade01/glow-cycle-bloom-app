@@ -147,7 +147,7 @@ export const CycleForm: React.FC<CycleFormProps> = ({ onComplete }) => {
                   </PopoverContent>
                 </Popover>
                 <FormDescription>
-                  Select the first day of your most recent period (must be after March 16th, 2024).
+                  Select the first day of your most recent period.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
