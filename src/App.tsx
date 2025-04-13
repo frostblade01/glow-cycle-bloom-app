@@ -16,6 +16,7 @@ import GlowBot from "./pages/GlowBot";
 import BeautyRecommender from "./pages/BeautyRecommender";
 import EducationHub from "./pages/EducationHub";
 import Community from "./pages/Community";
+import AboutClove from "./pages/AboutClove";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -39,6 +40,7 @@ const App = () => (
               <Route path="/beauty-recommender" element={<BeautyRecommender />} />
               <Route path="/education-hub" element={<EducationHub />} />
               <Route path="/community" element={<Community />} />
+              <Route path="/about" element={<AboutClove />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

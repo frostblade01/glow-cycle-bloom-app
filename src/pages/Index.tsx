@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
-import Auth from './Auth';
 
 const Index = () => {
   const { user } = useAuth();
@@ -18,11 +17,14 @@ const Index = () => {
       } else {
         navigate('/dashboard');
       }
+    } else {
+      // Redirect to the About page if not authenticated
+      navigate('/about');
     }
   }, [user, navigate]);
 
-  // Render the Auth component directly
-  return <Auth />;
+  // Return null as this is just a redirector
+  return null;
 };
 
 export default Index;
